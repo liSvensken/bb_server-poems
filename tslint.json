@@ -1,0 +1,115 @@
+{
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "variable-name": false,
+        "component-selector": [
+            true,
+            "element",
+            "app",
+            "kebab-case"
+        ],
+        "directive-selector": [
+            true,
+            "attribute",
+            "app",
+            "camelCase"
+        ],
+        "import-destructuring-spacing": true,
+        "indent": [
+            true,
+            "spaces",
+            2
+        ],
+        "ter-indent": [
+            true,
+            2,
+            {
+                "SwitchCase": true
+            }
+        ],
+        "object-curly-spacing": [
+            true,
+            "always"
+        ],
+        "array-bracket-spacing": [
+            true,
+            "never"
+        ],
+        "template-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "typedef": [
+            true,
+            "call-signature",
+            "property-declaration"
+        ],
+        "rxjs-finnish": {
+            "options": [
+                {
+                    "functions": false,
+                    "methods": false,
+                    "parameters": false,
+                    "properties": false,
+                    "variables": true
+                }
+            ],
+            "severity": "error"
+        },
+        "ordered-imports": false,
+        "only-arrow-functions": false,
+        "no-console": false,
+        "strict-boolean-expressions": false,
+        "max-classes-per-file": false,
+        "prefer-readonly": false,
+        "no-null-keyword": false,
+        "prefer-conditional-expression": false,
+        "unnecessary-else": false,
+        "comment-type": false,
+        "no-floating-promises": false,
+        "no-string-literal": false,
+        "no-implicit-dependencies": false,
+        "no-void-expression": false,
+        "no-object-literal-type-assertion": false,
+        "promise-function-async": false,
+        "template-i18n": false,
+        "template-cyclomatic-complexity": false,
+        "no-parameter-reassignment": false,
+        "array-type": false,
+        "template-use-track-by-function": false,
+        "max-line-length": [
+            true,
+            {
+                "limit": 140,
+                "ignore-pattern": "^import"
+            }
+        ],
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "private-static-field",
+                    "public-static-field",
+                    "private-instance-field",
+                    "public-instance-field",
+                    "private-constructor",
+                    "public-constructor",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ],
+        "max-file-line-count": false,
+        "ban-ts-ignore": false,
+        "switch-default": false,
+        "cyclomatic-complexity": false,
+        "no-dynamic-delete": false,
+        "unnecessary-constructor": false
+    },
+    "rulesDirectory": [
+        "codelyzer"
+    ]
+}
