@@ -1,11 +1,11 @@
 import { initApp, startApp } from './services/app.service';
 import { initConnection } from './services/db.service';
-import { initRoutesUsers } from './routes';
+import { initRoutesPoems } from './routes';
 
 initApp();
 initConnection()
 	.then(() => {
 		startApp(process.env.PORT || 7000);
-		initRoutesUsers();
+		initRoutesPoems();
 	})
 	.catch(err => console.error(err));

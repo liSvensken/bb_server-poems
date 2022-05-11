@@ -12,6 +12,6 @@ export function initApp(): void {
 
 export function startApp(port: any): void {
   app.listen(port, () => {
-    console.log('Server started');
+    console.log('Server started', port);
   });
 }

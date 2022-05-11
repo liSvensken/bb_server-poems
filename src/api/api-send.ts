@@ -16,4 +16,8 @@ export function apiSend(res: Response, statusCode: number, result: any = null, e
   response.totalItems = totalItems;
   res.status(statusCode);
   res.json(response);
+
+  console.log('_____')
+  console.log(response)
+  console.log('_____')
 }
