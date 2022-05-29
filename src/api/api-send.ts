@@ -7,8 +7,7 @@ export function apiSend(res: Response, statusCode: number, result: any = null, e
   const response: CommonResponse = {
     result: null,
     error: null,
-    totalItems: null,
-    token: null,
+    totalItems: null
   };
 
   response.result = result;

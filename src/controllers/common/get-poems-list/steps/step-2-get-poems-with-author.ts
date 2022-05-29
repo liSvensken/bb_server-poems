@@ -3,6 +3,7 @@ import { StepsResultInterface } from "../get-poems-list";
 import { connection } from "../../../../services/db.service";
 import { TablesEnum } from "../../../../enums/table.enum";
 import { PoemInterface } from "../../../../interfaces/poem.interface";
+import { ErrorTypes } from "../../../../api/types/error.types";
 
 export function step2GetPoemsWithAuthor(callback: (err: ErrorInterface, statusCode: number, nowStepsResults: any) => void,
 																				stepsResults: StepsResultInterface) {
@@ -15,7 +16,7 @@ export function step2GetPoemsWithAuthor(callback: (err: ErrorInterface, statusCo
 				if (!err) {
 					poemsList.push({
 						...poemItem,
-						authorName: result
+						authorName: result[0]
 					})
 
 					if (index === stepsResults.step1GetPoems.length - 1) {
@@ -23,13 +24,12 @@ export function step2GetPoemsWithAuthor(callback: (err: ErrorInterface, statusCo
 						callback(null, 200, stepsResults.step2GetPoemsWithAuthor);
 					}
 				} else {
-					// todo !!!
 					callback(
 						{
-							type: "type",
-							message: "message",
-							status: 500,
-						}, 500, null)
+							type: ErrorTypes.NotFound,
+							message: "",
+							status: 404,
+						}, 404, null)
 				}
 			});
 	})
