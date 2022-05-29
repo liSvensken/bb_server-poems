@@ -1,6 +1,6 @@
 export interface Step1GetPoemsInterface {
 	id: number;
 	poemName: string;
-	authorName: number;
+	authorId: number;
 	urlParam: string;
 }

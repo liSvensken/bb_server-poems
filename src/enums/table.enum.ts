@@ -1,4 +1,4 @@
 export enum TablesEnum {
 	Poems = 'poems',
-	AuthorNames = 'authors'
+	Authors = 'authors'
 }

@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { app } from './services/app.service';
-import { getFullPoems } from "./controllers/get-full-poems";
+import { getPoemsList } from "./controllers/get-poems-list";
 
 export function initRoutesPoems(): void {
 
   /** получить все стихи */
-  app.get('/poems/:offset', (req: Request, res: Response) => {
-    getFullPoems(req, res);
+  app.post('/poems', (req: Request, res: Response) => {
+    getPoemsList(req, res);
   });
 }
