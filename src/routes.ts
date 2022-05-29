@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { app } from './services/app.service';
-import { getFullPoems } from "./controllers/get-full-poems/get-full-poems";
+import { getFullPoems } from "./controllers/get-full-poems";
 
 export function initRoutesPoems(): void {
 
