@@ -1,6 +1,8 @@
+import { TablePoemFields } from "../../../../enums/table-poem-fields";
+
 export interface Step1GetPoemsInterface {
-	id: number;
-	poemName: string;
-	authorId: number;
-	urlParam: string;
+	[TablePoemFields.Id]: number;
+	[TablePoemFields.PoemName]: string;
+	[TablePoemFields.AuthorId]: number;
+	[TablePoemFields.UrlParam]: string;
 }
