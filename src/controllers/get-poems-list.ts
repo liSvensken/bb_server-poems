@@ -22,7 +22,7 @@ export function getPoemsList(req: Request, res: Response) {
 	const reqBody: bodyRequest = req.body;
 
 	const stepsIter: StepIterInterface[] = [
-		{ fn: step1GetPoems, params: [reqBody.offset, reqBody.limit, +reqBody.authorId, +reqBody.grad, null] },
+		{ fn: step1GetPoems, params: [reqBody.offset, reqBody.limit, +reqBody.authorId, +reqBody.grad, null, null] },
 		{ fn: step2GetPoemsWithAuthor, params: [], last: true }
 	]
 

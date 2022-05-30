@@ -20,7 +20,7 @@ export function getAuthorList(req: Request, res: Response) {
 	const reqBody: bodyRequest = req.body;
 
 	const stepsIter: StepIterInterface[] = [
-		{ fn: step1GetAuthorsList, params: [reqBody.offset, reqBody.limit] },
+		{ fn: step1GetAuthorsList, params: [reqBody.offset, reqBody.limit, null, null, null, null] },
 		{ fn: step2GetPoemsByAuthor, params: [], last: true }
 	]
 
