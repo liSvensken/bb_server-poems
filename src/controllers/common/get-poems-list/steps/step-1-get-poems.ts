@@ -6,20 +6,24 @@ import { StepsResultInterface } from "../../../get-poems-list";
 import { TablePoemFields } from "../../../../enums/table-poem-fields";
 
 export function step1GetPoems(callback: (err: ErrorInterface, statusCode: number, nowStepsResults: any) => void,
-															offset: number, limit: number, authorId: number, grad: number, stepsResults: StepsResultInterface) {
+															offset: number, limit: number, authorId: number, grad: number, poemUrl: string, stepsResults: StepsResultInterface) {
 
 	let additionalConditions = "";
 
 	const addConditionString = (fieldName: TablePoemFields, newCondition: string | number | null) => {
 		if (newCondition) {
-			const conditionStr = `${fieldName} = ${ newCondition }`;
+			if (typeof newCondition === "string") {
+				newCondition = `'${ newCondition }'`;
+			}
+			const conditionStr = `${ fieldName } = ${ newCondition }`;
 
-			additionalConditions += !additionalConditions ? `WHERE ${conditionStr}` : `AND ${ conditionStr }`;
+			additionalConditions += !additionalConditions ? `WHERE ${ conditionStr }` : `AND ${ conditionStr }`;
 		}
 	}
 
 	addConditionString(TablePoemFields.AuthorId, authorId);
 	addConditionString(TablePoemFields.Grad, grad);
+	addConditionString(TablePoemFields.UrlParam, poemUrl);
 
 	connection.query(
 		`SELECT * FROM poems.${ TablesEnum.Poems } ${ additionalConditions } LIMIT ${ offset }, ${ limit }`,

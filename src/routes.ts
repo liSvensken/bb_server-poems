@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { app } from './services/app.service';
 import { getPoemsList } from "./controllers/get-poems-list";
 import { getAuthorList } from "./controllers/get-authors-list/get-authors-list";
+import { getPoemsItem } from "./controllers/get-poems-item";
 
 export function initRoutesPoems(): void {
 
@@ -13,5 +14,10 @@ export function initRoutesPoems(): void {
   /** получить всех авторов */
   app.post('/authors', (req: Request, res: Response) => {
     getAuthorList(req, res);
+  });
+
+  /** получить конкретное стихотворение */
+  app.get('/poem/:url', (req: Request, res: Response) => {
+    getPoemsItem(req, res);
   });
 }

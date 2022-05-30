@@ -4,6 +4,8 @@ import { TablesEnum } from "../../../../enums/table.enum";
 import { PoemInterface } from "../../../../interfaces/poem.interface";
 import { ErrorTypes } from "../../../../api/types/error.types";
 import { StepsResultInterface } from "../../../get-poems-list";
+import { AuthorNameInterface } from "../../../../interfaces/author-name.interface";
+import { TablePoemFields } from "../../../../enums/table-poem-fields";
 
 export function step2GetPoemsWithAuthor(callback: (err: ErrorInterface, statusCode: number, nowStepsResults: any) => void,
 																				stepsResults: StepsResultInterface) {
@@ -17,9 +19,27 @@ export function step2GetPoemsWithAuthor(callback: (err: ErrorInterface, statusCo
 				(err, result) => {
 					if (!err) {
 						poemsList.push({
-							...poemItem,
-							authorName: result[0]
-						})
+							id: poemItem[TablePoemFields.Id],
+							poemName: poemItem[TablePoemFields.PoemName],
+							authorName: result[0] as AuthorNameInterface,
+							urlParam: poemItem[TablePoemFields.UrlParam],
+							video: {
+								provider: poemItem[TablePoemFields.VideoProvider],
+								embedId: poemItem[TablePoemFields.VideoEmbedId],
+								actor: poemItem[TablePoemFields.VideoActor],
+								social: {
+									youtube: poemItem[TablePoemFields.VideoSocialYoutube],
+									inst: poemItem[TablePoemFields.VideoSocialInst],
+									vk: poemItem[TablePoemFields.VideoSocialVk],
+									telegram: poemItem[TablePoemFields.VideoSocialTelegram],
+									tiktok: poemItem[TablePoemFields.VideoSocialTiktok],
+								},
+								audio: poemItem[TablePoemFields.VideoAudio]
+							},
+							explanationText: JSON.parse(poemItem[TablePoemFields.ExplanationText]),
+							poemText: poemItem[TablePoemFields.PoemText]
+						} as PoemInterface)
+
 
 						if (index === stepsResults.step1GetPoems.length - 1) {
 							stepsResults.step2GetPoemsWithAuthor = poemsList;

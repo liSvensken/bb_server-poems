@@ -3,5 +3,16 @@ export enum TablePoemFields {
 	PoemName = 'poemName',
 	AuthorId = 'authorId',
 	Grad = 'grad',
-	UrlParam = 'urlParam'
+	UrlParam = 'urlParam',
+	VideoProvider = 'videoProvider',
+	VideoEmbedId = 'videoEmbedId',
+	VideoActor = 'videoActor',
+	VideoSocialYoutube = 'videoSocialYoutube',
+	VideoSocialInst = 'videoSocialInst',
+	VideoSocialVk = 'videoSocialVk',
+	VideoSocialTelegram = 'videoSocialTelegram',
+	VideoSocialTiktok = 'videoSocialTiktok',
+	VideoAudio = 'videoAudio',
+	ExplanationText = 'explanationText',
+	PoemText = 'poemText',
 }
