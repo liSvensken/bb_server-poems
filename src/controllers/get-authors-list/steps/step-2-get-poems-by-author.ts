@@ -25,7 +25,6 @@ export function step2GetPoemsByAuthor(callback: (err: ErrorInterface, statusCode
 
 					if (index === stepsResults.step1GetAuthorsList.length - 1) {
 						stepsResults.step2GetPoemsByAuthor = authorAndPoems;
-						console.log(stepsResults.step2GetPoemsByAuthor)
 						callback(null, 200, stepsResults.step2GetPoemsByAuthor);
 					}
 				} else {
